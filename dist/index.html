@@ -29,11 +29,6 @@
 				<h6 class="col-2">Ignoring Armor</h6>
 				<h6 class="col-2">Combined Dmg</h6>
 			</div>
-			<div class="row">
-				<div class="col-3"></div>
-				<button class="col-6 add_famed">Add Famed Item</button>
-				<div class="col-3"></div>
-			</div>
 		</section>
 		<hr>
 		<section class="container" id="oneHandDuelist">
@@ -96,6 +91,43 @@
 			</div>
 		</section>
 		<hr />
+		<section id="add_famed"></section>
+		
+			<form action="" id="add_famed_form" class="container">
+				<div class="row">
+					<h6 class="col-2">Weapon Type</h6>
+					<h6 class="col-3">Name</h6>
+					<h6 class="col-1">Min Dmg</h6>
+					<h6 class="col-1">Max Dmg</h6>
+					<h6 class="col-1">Ignore Armor</h6>
+					<h6 class="col-1">Armor Dmg</h6>
+					<h6 class="col-1">Atks/Rd</h6>
+					<h6 class="col-1">Head Mod</h6>
+					<h6 class="col-1">Head Hit</h6>
+				</div>
+				<div class="row">
+					<select name="" id="" class="col-2">
+						<option value="oneHand">One Hand</option>
+						<option value="oneHandDuelist">One Hand(Duelist)</option>
+						<option value="twoHand">2H</option>
+						<option value="reach">Reach</option>
+						<option value="ranged">Ranged</option>
+					</select>
+					<input type="text" class="col-3">
+					<h6 class="col-1"><input type="number" name="" id="minDmg"></h6>
+					<h6 class="col-1"><input type="number" name="" id="maxDmg"></h6>
+					<h6 class="col-1"><input type="number" name="" id="ignoreArmor"></h6>
+					<h6 class="col-1"><input type="number" name="" id="armorDmg"></h6>
+					<h6 class="col-1"><input type="number" name="" id="attacks"></h6>
+					<h6 class="col-1"><input type="number" name="" id="headDmgMod"></h6>
+					<h6 class="col-1"><input type="number" name="" id="headHit"></h6>
+				</div>
+				<div class="row">
+					<div class="col-3"></div>
+					<button type="button" class="col-6 add">Add Famed Item</button>
+					<div class="col-3"></div>
+				</div>
+			</form>
 		<section class="container" id="compare"></section>
 		<footer class="container"></footer>
 		<script src="js/main.js"></script>

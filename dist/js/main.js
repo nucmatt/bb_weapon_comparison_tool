@@ -17,6 +17,7 @@ function loadWeapons() {
 			// oneHand.innerHTML += outputHtml(weaponList);
 
 			document.querySelectorAll(".show_stats").forEach(toggleStats);
+			document.querySelectorAll(".add").forEach(addFamed);
 		}
 	};
 
@@ -104,6 +105,16 @@ function toggleWeaponStats(classArr) {
 		classArr.add("slideUp");
 	}
 }
+
+function addFamed(btn) {
+	btn.onclick = function(e){
+		let form = document.getElementById("add_famed_form");
+		console.log(form);
+		// console.log(e.path);
+		// this.innerHTML = "Ready to add famed!";
+	}
+}
+
 
 function unarmoredDmg(weapon) {
 	const dmg = avgDmg(weapon.minDmg, weapon.maxDmg);
