@@ -1,5 +1,5 @@
 window.onload = loadWeapons();
-const test = document.getElementById('compare');
+const test = document.getElementById("compare");
 
 function loadWeapons() {
 	let xhr = new XMLHttpRequest();
@@ -9,14 +9,16 @@ function loadWeapons() {
 	xhr.onload = function () {
 		if (this.status == 200) {
 			const weapons = JSON.parse(this.responseText);
+			const famedWeapons = getSavedFamed();
 			// const weaponTypes = Object.entries(weapons);
-			console.log(weapons);
+			// console.log(Array.isArray(weapons));
+			// console.log(Array.isArray(famedWeapons));
 			// console.log(weaponTypes);
 			displayWeapons(weapons);
+			displayWeapons(famedWeapons);
 			// const weaponList = weapons.oneHand;
 			// console.log(weaponList);
 			// oneHand.innerHTML += outputHtml(weaponList);
-
 			document.querySelectorAll(".show_stats").forEach(toggleStats);
 			document.querySelectorAll(".add").forEach(addFamed);
 		}
@@ -26,7 +28,7 @@ function loadWeapons() {
 }
 
 function displayWeapons(weapons) {
-	weaponTypes = Object.entries(weapons);
+	let weaponTypes = (Array.isArray(weapons) ? weapons : Object.entries(weapons));
 	for (let i = 0; i < weaponTypes.length; i++) {
 		let weaponSection = document.getElementById(weaponTypes[i][0]);
 		let weaponList = weaponTypes[i][1];
@@ -40,7 +42,7 @@ const outputHtml = (weaponList) => {
 		.map(
 			(weapon) =>
 				`
-                    <div class="weapon">
+                    <div class="weapon ${weapon.name.toLowerCase().replace(/\s/g, '')}">
                         <div class="row">
                             <p class="col-1">
                                 <input type="checkbox" />
@@ -51,7 +53,9 @@ const outputHtml = (weaponList) => {
                             <p class="col-2">${unarmoredDmg(weapon)}</p>
                             <p class="col-2">${armorDmg(weapon)}</p>
                             <p class="col-2">${ignoreArmorDmg(weapon)}</p>
-                            <p class="col-2">${armorDmg(weapon) + ignoreArmorDmg(weapon)}</p>
+                            <p class="col-2">${
+															armorDmg(weapon) + ignoreArmorDmg(weapon)
+														}</p>
                         </div>
                         <div class="wpn-stats slideUp">
                             <div class="row">
@@ -110,11 +114,10 @@ function toggleWeaponStats(classArr) {
 }
 
 function addFamed(btn) {
-	btn.onclick = function(e){
+	btn.onclick = function (e) {
 		let form = document.getElementById("add_famed_form");
-		// console.log(form);
-		let type = document.getElementById('weaponType').value;
-		let inputs = form.getElementsByTagName('input');
+		let type = document.getElementById("weaponType").value;
+		let inputs = form.getElementsByTagName("input");
 		let values = Object.values(inputs);
 		let arr = [];
 		for (let i = 0; i < values.length; i++) {
@@ -122,12 +125,12 @@ function addFamed(btn) {
 		}
 		let famedStats = new Weapon(...arr);
 		let famedItem = [type, [famedStats]];
-		// console.log(type);
-		console.log(famedStats);
-		// console.log(famedItem);
-		displayNewFamed(famedItem);		
+		console.log(famedItem);
+		saveFamed(famedItem);
+		displayNewFamed(famedItem);
+		// Resets the toggleStats arrows for the section where the new famed is added.
 		document.querySelectorAll(".show_stats").forEach(toggleStats);
-	}
+	};
 }
 
 function displayNewFamed(famed) {
@@ -138,7 +141,40 @@ function displayNewFamed(famed) {
 	weaponDiv.innerHTML += outputHtml(famed[1]);
 }
 
-function Weapon(name, minDmg, maxDmg, ignoreArmor, armorDmg, attacks, headDmgMod, headHit) {
+function saveFamed(famed) {
+	if (typeof Storage !== undefined) {
+		console.log("Yay local storage!");
+		let name = famed[1][0].name;
+		let weapon = JSON.stringify(famed);
+		console.log(weapon);
+		localStorage.setItem(name, weapon);
+	} else {
+		alert("No local storage option. Please see readme for more details.");
+	}
+}
+
+function getSavedFamed() {
+	let famedItems = [],
+		keys = Object.keys(localStorage),
+		i = keys.length;
+	while (i--) {
+		let famedItem = JSON.parse(localStorage.getItem(keys[i]));
+		// console.log("from getSavedFamed: ", famedItem);
+		famedItems.unshift(famedItem);
+	}
+	return famedItems;
+}
+
+function Weapon(
+	name,
+	minDmg,
+	maxDmg,
+	ignoreArmor,
+	armorDmg,
+	attacks,
+	headDmgMod,
+	headHit
+) {
 	this.name = name;
 	this.minDmg = minDmg;
 	this.maxDmg = maxDmg;
@@ -148,7 +184,6 @@ function Weapon(name, minDmg, maxDmg, ignoreArmor, armorDmg, attacks, headDmgMod
 	this.headDmgMod = headDmgMod;
 	this.headHit = headHit;
 }
-
 
 function unarmoredDmg(weapon) {
 	const dmg = avgDmg(weapon.minDmg, weapon.maxDmg);
