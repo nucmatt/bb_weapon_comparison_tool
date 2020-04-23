@@ -1,4 +1,5 @@
 window.onload = loadWeapons();
+const test = document.getElementById('compare');
 
 function loadWeapons() {
 	let xhr = new XMLHttpRequest();
@@ -8,10 +9,10 @@ function loadWeapons() {
 	xhr.onload = function () {
 		if (this.status == 200) {
 			const weapons = JSON.parse(this.responseText);
-			displayWeapons(weapons);
-			// console.log(weapons);
 			// const weaponTypes = Object.entries(weapons);
+			console.log(weapons);
 			// console.log(weaponTypes);
+			displayWeapons(weapons);
 			// const weaponList = weapons.oneHand;
 			// console.log(weaponList);
 			// oneHand.innerHTML += outputHtml(weaponList);
@@ -29,6 +30,8 @@ function displayWeapons(weapons) {
 	for (let i = 0; i < weaponTypes.length; i++) {
 		let weaponSection = document.getElementById(weaponTypes[i][0]);
 		let weaponList = weaponTypes[i][1];
+		// console.log(weaponSection);
+		// console.log(weaponList);
 		weaponSection.innerHTML += outputHtml(weaponList);
 	}
 }
@@ -81,7 +84,7 @@ function toggleStats(btn) {
 		const weaponStatsDiv =
 			e.target.parentNode.parentNode.parentNode.nextElementSibling.classList;
 		const toggleBtn = e.currentTarget.classList;
-		console.log(toggleBtn);
+		// console.log(toggleBtn);
 		toggleRotation(toggleBtn);
 		toggleWeaponStats(weaponStatsDiv);
 	};
@@ -109,10 +112,41 @@ function toggleWeaponStats(classArr) {
 function addFamed(btn) {
 	btn.onclick = function(e){
 		let form = document.getElementById("add_famed_form");
-		console.log(form);
-		// console.log(e.path);
-		// this.innerHTML = "Ready to add famed!";
+		// console.log(form);
+		let type = document.getElementById('weaponType').value;
+		let inputs = form.getElementsByTagName('input');
+		let values = Object.values(inputs);
+		let arr = [];
+		for (let i = 0; i < values.length; i++) {
+			arr.push(values[i].value);
+		}
+		let famedStats = new Weapon(...arr);
+		let famedItem = [type, [famedStats]];
+		// console.log(type);
+		console.log(famedStats);
+		// console.log(famedItem);
+		displayNewFamed(famedItem);		
+		document.querySelectorAll(".show_stats").forEach(toggleStats);
 	}
+}
+
+function displayNewFamed(famed) {
+	const weaponDiv = document.getElementById(famed[0]);
+	// console.log(weaponDiv);
+	// console.log(outputHtml([famed[1]]));
+	console.log(famed[1]);
+	weaponDiv.innerHTML += outputHtml(famed[1]);
+}
+
+function Weapon(name, minDmg, maxDmg, ignoreArmor, armorDmg, attacks, headDmgMod, headHit) {
+	this.name = name;
+	this.minDmg = minDmg;
+	this.maxDmg = maxDmg;
+	this.ignoreArmor = ignoreArmor;
+	this.armorDmg = armorDmg;
+	this.attacks = attacks;
+	this.headDmgMod = headDmgMod;
+	this.headHit = headHit;
 }
 
 
@@ -120,6 +154,7 @@ function unarmoredDmg(weapon) {
 	const dmg = avgDmg(weapon.minDmg, weapon.maxDmg);
 	const toHead = dmgToHead(dmg, weapon.headHit, weapon.headDmgMod);
 	const toBody = dmgToBody(dmg, weapon.headHit);
+	// console.log(avgDmg(weapon.minDmg, weapon.maxDmg));
 	return Math.round((toHead + toBody) * weapon.attacks);
 }
 
@@ -138,7 +173,7 @@ function ignoreArmorDmg(weapon) {
 }
 
 function avgDmg(min, max) {
-	return (min + max) / 2;
+	return (+min + +max) / 2;
 }
 
 function dmgToHead(dmg, headHit, modifier) {
