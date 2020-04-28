@@ -67,10 +67,18 @@ body {
   padding: 0 0.3rem;
 }
 
-.toggle {
+.buttons button {
   border: none;
   background: none;
   outline: none;
+}
+
+.buttons .delete {
+  margin-right: 5px;
+}
+
+.buttons .delete :hover {
+  border: solid 1px red;
 }
 
 .add {

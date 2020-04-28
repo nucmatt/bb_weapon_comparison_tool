@@ -1,5 +1,6 @@
-window.onload = loadWeapons();
 const test = document.getElementById("compare");
+let famedList;
+window.onload = loadWeapons();
 
 function loadWeapons() {
 	let xhr = new XMLHttpRequest();
@@ -10,17 +11,20 @@ function loadWeapons() {
 		if (this.status == 200) {
 			const weapons = JSON.parse(this.responseText);
 			const famedWeapons = getSavedFamed();
+			famedList = Object.keys(localStorage);
 			// const weaponTypes = Object.entries(weapons);
 			// console.log(Array.isArray(weapons));
 			// console.log(Array.isArray(famedWeapons));
 			// console.log(weaponTypes);
 			displayWeapons(weapons);
 			displayWeapons(famedWeapons);
+			findFamed();
 			// const weaponList = weapons.oneHand;
-			// console.log(weaponList);
+			// console.log(famedWeapons);
 			// oneHand.innerHTML += outputHtml(weaponList);
 			document.querySelectorAll(".show_stats").forEach(toggleStats);
 			document.querySelectorAll(".add").forEach(addFamed);
+			document.querySelectorAll(".delete").forEach(removeFamed);
 		}
 	};
 
@@ -28,7 +32,7 @@ function loadWeapons() {
 }
 
 function displayWeapons(weapons) {
-	let weaponTypes = (Array.isArray(weapons) ? weapons : Object.entries(weapons));
+	let weaponTypes = Array.isArray(weapons) ? weapons : Object.entries(weapons);
 	for (let i = 0; i < weaponTypes.length; i++) {
 		let weaponSection = document.getElementById(weaponTypes[i][0]);
 		let weaponList = weaponTypes[i][1];
@@ -42,13 +46,14 @@ const outputHtml = (weaponList) => {
 		.map(
 			(weapon) =>
 				`
-                    <div class="weapon ${weapon.name.toLowerCase().replace(/\s/g, '')}">
+                    <div class="weapon">
                         <div class="row">
                             <p class="col-1">
                                 <input type="checkbox" />
                             </p>
-                            <p class="col-3">${weapon.name} 
-                                <button type="button" class="toggle"><i class="fa fa-chevron-right show_stats rotateRight"></i></button>
+                            <p class="col-3"><span class=${famedList.includes(weapon.name) ? `${weapon.name.toLowerCase().replace(/\s/g, "")}` : "standard"}>${
+															weapon.name
+														}</span><span class="buttons"><button type="button" class="toggle"><i class="fa fa-chevron-right show_stats rotateRight"></i></button></span>
                             </p>
                             <p class="col-2">${unarmoredDmg(weapon)}</p>
                             <p class="col-2">${armorDmg(weapon)}</p>
@@ -86,9 +91,9 @@ const outputHtml = (weaponList) => {
 function toggleStats(btn) {
 	btn.onclick = function (e) {
 		const weaponStatsDiv =
-			e.target.parentNode.parentNode.parentNode.nextElementSibling.classList;
+			e.target.parentNode.parentNode.parentNode.parentNode.nextElementSibling.classList;
 		const toggleBtn = e.currentTarget.classList;
-		// console.log(toggleBtn);
+		// console.log(e.target.parentElement);
 		toggleRotation(toggleBtn);
 		toggleWeaponStats(weaponStatsDiv);
 	};
@@ -128,7 +133,7 @@ function addFamed(btn) {
 		console.log(famedItem);
 		saveFamed(famedItem);
 		displayNewFamed(famedItem);
-		// Resets the toggleStats arrows for the section where the new famed is added.
+		// Resets the toggleStats arrows. Adding a famed currently breaks the section where the famed is added.
 		document.querySelectorAll(".show_stats").forEach(toggleStats);
 	};
 }
@@ -152,6 +157,47 @@ function saveFamed(famed) {
 		alert("No local storage option. Please see readme for more details.");
 	}
 }
+
+function findFamed() {
+	// let keys = Object.keys(localStorage);
+	// let famedHtml = document.querySelectorAll('.name');
+	let famedHtml;
+	console.log(famedList);
+	for (let i = 0; i < famedList.length; i++) {
+		// console.log(famedList[i]);
+		// console.log(`.${famedList[i].toLowerCase().replace(/\s/g, "")}`)
+		famedHtml = document.querySelector(`.${famedList[i].toLowerCase().replace(/\s/g, "")}`);
+		addDeleteBtn(famedHtml.nextSibling)
+	}
+}
+
+function addDeleteBtn(famedHtml) {
+	const html = `<button type="button" class="delete"><i class="fa fa-trash fa-lg"></i></button>`;
+	famedHtml.innerHTML = html + famedHtml.innerHTML;
+	// let keys = Object.keys(localStorage);
+	// let famedHtml = document.querySelectorAll('.name');
+	// console.log(famedHtml);
+	// for (let i = 0; i < keys.length; i++) {
+	// 	let key = keys[i];
+	// 	console.log(key);
+	// 	for (let j = 0; j < famedHtml.length; j++) {
+	// 		if (famedHtml[j].innerHTML == key) {
+	// 			famedHtml[j].nextSibling.innerHTML = html + famedHtml[j].nextSibling.innerHTML;
+	// 		}
+	// 	}
+		
+	// }
+}
+
+function removeFamed(btn) {
+	btn.onclick = function(e) {
+		console.log("Delete button clicked!");
+		let famed = e.target.parentNode.parentNode.previousSibling.innerHTML;
+		localStorage.removeItem(famed);
+	}
+}
+
+// removeFamed("tryout");
 
 function getSavedFamed() {
 	let famedItems = [],

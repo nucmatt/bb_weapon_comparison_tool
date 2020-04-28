@@ -60,10 +60,21 @@ body {
 	}
 }
 
-.toggle {
-	border: none;
-	background: none;
-	outline: none;
+.buttons {
+	button {
+		border: none;
+		background: none;
+		outline: none;
+	}
+
+	.delete {
+		// background-color: red;
+		margin-right: 5px;
+
+		:hover {
+			border: solid 1px red;
+		}
+	}
 }
 
 .add {
