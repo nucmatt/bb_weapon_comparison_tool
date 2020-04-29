@@ -11,6 +11,19 @@ body {
   line-height: 1.5;
 }
 
+#navbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 0 1rem;
+  background-color: #f4f4f4;
+  width: 100%;
+  z-index: 100;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -81,7 +94,7 @@ body {
   border: solid 1px red;
 }
 
-.add {
+#add_famed_btn {
   height: 2rem;
   border-radius: 10px;
 }

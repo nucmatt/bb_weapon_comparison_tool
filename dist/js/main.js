@@ -1,4 +1,5 @@
 const test = document.getElementById("compare");
+document.getElementById("add_famed_btn").addEventListener('click', addFamed);
 let famedList;
 window.onload = loadWeapons();
 
@@ -18,13 +19,13 @@ function loadWeapons() {
 			// console.log(weaponTypes);
 			displayWeapons(weapons);
 			displayWeapons(famedWeapons);
-			findFamed();
+			addDeleteBtn();
 			// const weaponList = weapons.oneHand;
 			// console.log(famedWeapons);
 			// oneHand.innerHTML += outputHtml(weaponList);
 			document.querySelectorAll(".show_stats").forEach(toggleStats);
-			document.querySelectorAll(".add").forEach(addFamed);
 			document.querySelectorAll(".delete").forEach(removeFamed);
+			
 		}
 	};
 
@@ -118,8 +119,8 @@ function toggleWeaponStats(classArr) {
 	}
 }
 
-function addFamed(btn) {
-	btn.onclick = function (e) {
+function addFamed(e) {
+	// e.onclick = function (e) {
 		let form = document.getElementById("add_famed_form");
 		let type = document.getElementById("weaponType").value;
 		let inputs = form.getElementsByTagName("input");
@@ -133,10 +134,9 @@ function addFamed(btn) {
 		console.log(famedItem);
 		saveFamed(famedItem);
 		displayNewFamed(famedItem);
-		// Resets the toggleStats arrows. Adding a famed currently breaks the section where the famed is added.
-		document.querySelectorAll(".show_stats").forEach(toggleStats);
+		location.reload();
 	};
-}
+// }
 
 function displayNewFamed(famed) {
 	const weaponDiv = document.getElementById(famed[0]);
@@ -158,7 +158,7 @@ function saveFamed(famed) {
 	}
 }
 
-function findFamed() {
+function addDeleteBtn() {
 	// let keys = Object.keys(localStorage);
 	// let famedHtml = document.querySelectorAll('.name');
 	let famedHtml;
@@ -167,11 +167,11 @@ function findFamed() {
 		// console.log(famedList[i]);
 		// console.log(`.${famedList[i].toLowerCase().replace(/\s/g, "")}`)
 		famedHtml = document.querySelector(`.${famedList[i].toLowerCase().replace(/\s/g, "")}`);
-		addDeleteBtn(famedHtml.nextSibling)
+		addDeleteBtnHtml(famedHtml.nextSibling)
 	}
 }
 
-function addDeleteBtn(famedHtml) {
+function addDeleteBtnHtml(famedHtml) {
 	const html = `<button type="button" class="delete"><i class="fa fa-trash fa-lg"></i></button>`;
 	famedHtml.innerHTML = html + famedHtml.innerHTML;
 	// let keys = Object.keys(localStorage);
@@ -194,6 +194,7 @@ function removeFamed(btn) {
 		console.log("Delete button clicked!");
 		let famed = e.target.parentNode.parentNode.previousSibling.innerHTML;
 		localStorage.removeItem(famed);
+		location.reload();
 	}
 }
 

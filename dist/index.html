@@ -16,6 +16,14 @@
 		<header class="container">
 			<h1>BB Weapons Comparison</h1>
 		</header>
+				<nav id="navbar" class="row">
+					<a href="#oneHand">1H Weapons</a>
+					<a href="#oneHandDuelist">Duelist Weapons</a>
+					<a href="#twoHand">2H Weapons</a>
+					<a href="#reach">Reach Weapons</a>
+					<a href="#ranged">Ranged Weapons</a>
+					<a href="#add_famed">Add Famed?</a>
+				</nav>
 		<section class="container" id="oneHand">
 			<div class="row heading">
 				<h3 class="col-4">1H Weapons</h3>
@@ -33,7 +41,7 @@
 		<hr>
 		<section class="container" id="oneHandDuelist">
 			<div class="row heading">
-				<h3 class="col-4">1H Weapons(Duelist)</h3>
+				<h3 class="col-4">Duelist Weapons</h3>
 				<h3 class="col-8">Damage/Round</h3>
 			</div>
 			<div class="row">
@@ -91,8 +99,7 @@
 			</div>
 		</section>
 		<hr />
-		<section id="add_famed"></section>
-		
+		<section id="add_famed">
 			<form action="" id="add_famed_form" class="container">
 				<div class="row">
 					<h6 class="col-2">Weapon Type</h6>
@@ -124,11 +131,18 @@
 				</div>
 				<div class="row">
 					<div class="col-3"></div>
-					<button type="button" class="col-6 add">Add Famed Item</button>
+					<button type="button" id="add_famed_btn" class="col-6">Add Famed Item</button>
 					<div class="col-3"></div>
 				</div>
 			</form>
-		<section class="container" id="compare"></section>
+		</section>
+		<hr>
+		<!-- <section class="container" id="compare">
+			<div class="row heading">
+				<div class="col-4">Compare Weapons</div>
+				<div class="col-8"> <button>Clear Comparisons</button></div>
+			</div>
+		</section> -->
 		<footer class="container"></footer>
 		<script src="js/main.js"></script>
 	</body>
