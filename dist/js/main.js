@@ -1,4 +1,4 @@
-const test = document.getElementById("compare");
+// const test = document.getElementById("compare");
 document.getElementById("add_famed_btn").addEventListener('click', addFamed);
 let famedList;
 window.onload = loadWeapons();
@@ -20,6 +20,7 @@ function loadWeapons() {
 			displayWeapons(weapons);
 			displayWeapons(famedWeapons);
 			addDeleteBtn();
+			addDragAndDrop();
 			// const weaponList = weapons.oneHand;
 			// console.log(famedWeapons);
 			// oneHand.innerHTML += outputHtml(weaponList);
@@ -31,6 +32,45 @@ function loadWeapons() {
 
 	xhr.send();
 }
+
+function addDragAndDrop() {
+	let weapons = document.querySelectorAll('.weapon');
+	let dropDivs = document.querySelectorAll('.empty');
+	// console.log(weapons);
+	// console.log(dropDivs);
+	for (weapon of weapons) {
+		weapon.addEventListener('dragstart', dragStart);
+		weapon.addEventListener('dragend', dragEnd);
+	}
+	for (div of dropDivs) {
+		div.addEventListener('dragover', dragOver);
+		div.addEventListener('dragenter', dragEnter);
+		div.addEventListener('dragleave', dragLeave);
+		div.addEventListener('drop', dragDrop);
+	}
+}
+
+function dragStart() {
+	console.log('drag start');
+};
+function dragEnd() {
+	console.log('drag end');
+};
+function dragOver() {
+	console.log('drag Over');
+};
+function dragEnter(e) {
+	console.log('drag Enter');
+	e.preventDefault();
+	this.className += ' hovered';
+};
+function dragLeave() {
+	console.log('drag Leave');
+	this.className = 'empty';
+};
+function dragDrop() {
+	console.log('drag Drop');
+};
 
 function displayWeapons(weapons) {
 	let weaponTypes = Array.isArray(weapons) ? weapons : Object.entries(weapons);
@@ -47,7 +87,7 @@ const outputHtml = (weaponList) => {
 		.map(
 			(weapon) =>
 				`
-                    <div class="weapon">
+                    <div class="weapon" draggable="true">
                         <div class="row">
                             <p class="col-1">
                                 <input type="checkbox" />
@@ -83,6 +123,8 @@ const outputHtml = (weaponList) => {
                                 <p class="col-1">${weapon.headHit}%</p>
                             </div>
 						</div>
+					</div>
+					<div class="empty">
 					</div>`
 		)
 		.join("");
@@ -162,7 +204,7 @@ function addDeleteBtn() {
 	// let keys = Object.keys(localStorage);
 	// let famedHtml = document.querySelectorAll('.name');
 	let famedHtml;
-	console.log(famedList);
+	// console.log(famedList);
 	for (let i = 0; i < famedList.length; i++) {
 		// console.log(famedList[i]);
 		// console.log(`.${famedList[i].toLowerCase().replace(/\s/g, "")}`)

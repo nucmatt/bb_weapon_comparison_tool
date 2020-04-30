@@ -94,6 +94,14 @@ body {
   border: solid 1px red;
 }
 
+.empty {
+  height: 1px;
+}
+
+.hovered {
+  height: 20px;
+}
+
 #add_famed_btn {
   height: 2rem;
   border-radius: 10px;
