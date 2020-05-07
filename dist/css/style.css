@@ -11,6 +11,14 @@ body {
   line-height: 1.5;
 }
 
+section {
+  margin: 0.5rem 1rem;
+}
+
+input {
+  text-align: center;
+}
+
 #navbar {
   position: -webkit-sticky;
   position: sticky;
@@ -67,7 +75,7 @@ body {
   max-height: 100px;
 }
 
-.weapon .col-3 {
+.weapon .col-4 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -99,8 +107,8 @@ body {
 }
 
 .hovered {
-  -webkit-transform: scale(1.1, 1.1);
-          transform: scale(1.1, 1.1);
+  -webkit-transform: scale(1.03, 1.1);
+          transform: scale(1.03, 1.1);
 }
 
 #add_famed_btn {

@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="css/style.css" />
 		<title>BB Weapon Comparison Tool</title>
 	</head>
-	<body>
+	<body class="container">
 		<header class="container">
 			<h1>BB Weapons Comparison</h1>
 		</header>
@@ -24,14 +24,13 @@
 					<a href="#ranged">Ranged Weapons</a>
 					<a href="#add_famed">Add Famed?</a>
 				</nav>
-		<section class="container" id="oneHand">
+		<section id="oneHand">
 			<div class="row heading">
 				<h3 class="col-4">1H Weapons</h3>
 				<h3 class="col-8">Damage/Round</h3>
 			</div>
 			<div class="row">
-				<h6 class="col-1">Compare?</h6>
-				<h6 class="col-3">Weapon</h6>
+				<h6 class="col-4">Weapon</h6>
 				<h6 class="col-2">vs Unarmored</h6>
 				<h6 class="col-2">to Armor</h6>
 				<h6 class="col-2">Ignoring Armor</h6>
@@ -39,14 +38,13 @@
 			</div>
 		</section>
 		<hr>
-		<section class="container" id="oneHandDuelist">
+		<section id="oneHandDuelist">
 			<div class="row heading">
 				<h3 class="col-4">Duelist Weapons</h3>
 				<h3 class="col-8">Damage/Round</h3>
 			</div>
 			<div class="row">
-				<h6 class="col-1">Compare?</h6>
-				<h6 class="col-3">Weapon</h6>
+				<h6 class="col-4">Weapon</h6>
 				<h6 class="col-2">vs Unarmored</h6>
 				<h6 class="col-2">to Armor</h6>
 				<h6 class="col-2">Ignoring Armor</h6>
@@ -54,14 +52,13 @@
 			</div>
 		</section>
 		<hr>
-		<section class="container" id="twoHand">
+		<section id="twoHand">
 			<div class="row heading">
 				<h3 class="col-4">2H Weapons</h3>
 				<h3 class="col-8">Damage/Round</h3>
 			</div>
 			<div class="row">
-				<h6 class="col-1">Compare?</h6>
-				<h6 class="col-3">Weapon</h6>
+				<h6 class="col-4">Weapon</h6>
 				<h6 class="col-2">vs Unarmored</h6>
 				<h6 class="col-2">to Armor</h6>
 				<h6 class="col-2">Ignoring Armor</h6>
@@ -69,14 +66,13 @@
 			</div>
 		</section>
 		<hr>
-		<section class="container" id="reach">
+		<section id="reach">
 			<div class="row heading">
 				<h3 class="col-4">Reach Weapons</h3>
 				<h3 class="col-8">Damage/Round</h3>
 			</div>
 			<div class="row">
-				<h6 class="col-1">Compare?</h6>
-				<h6 class="col-3">Weapon</h6>
+				<h6 class="col-4">Weapon</h6>
 				<h6 class="col-2">vs Unarmored</h6>
 				<h6 class="col-2">to Armor</h6>
 				<h6 class="col-2">Ignoring Armor</h6>
@@ -84,14 +80,13 @@
 			</div>
 		</section>
 		<hr>
-		<section class="container" id="ranged">
+		<section id="ranged">
 			<div class="row heading">
 				<h3 class="col-4">Ranged Weapons</h3>
 				<h3 class="col-8">Damage/Round</h3>
 			</div>
 			<div class="row">
-				<h6 class="col-1">Compare?</h6>
-				<h6 class="col-3">Weapon</h6>
+				<h6 class="col-4">Weapon</h6>
 				<h6 class="col-2">vs Unarmored</h6>
 				<h6 class="col-2">to Armor</h6>
 				<h6 class="col-2">Ignoring Armor</h6>
@@ -100,7 +95,7 @@
 		</section>
 		<hr />
 		<section id="add_famed">
-			<form action="" id="add_famed_form" class="container">
+			<form action="" id="add_famed_form">
 				<div class="row">
 					<h6 class="col-2">Weapon Type</h6>
 					<h6 class="col-3">Name</h6>
@@ -121,13 +116,13 @@
 						<option value="ranged">Ranged</option>
 					</select>
 					<input type="text" class="col-3" value="tryout">
-					<h6 class="col-1"><input type="number" name="" id="minDmg" value="37"></h6>
-					<h6 class="col-1"><input type="number" name="" id="maxDmg" value="50"></h6>
-					<h6 class="col-1"><input type="number" name="" id="ignoreArmor" value="66"></h6>
-					<h6 class="col-1"><input type="number" name="" id="armorDmg" value="250"></h6>
-					<h6 class="col-1"><input type="number" name="" id="attacks" value="2"></h6>
-					<h6 class="col-1"><input type="number" name="" id="headDmgMod" value="1.5"></h6>
-					<h6 class="col-1"><input type="number" name="" id="headHit" value="25"></h6>
+					<input type="number" name="" id="minDmg" class="col-1" value="37">
+					<input type="number" name="" id="maxDmg" class="col-1" value="50">
+					<input type="number" name="" id="ignoreArmor" class="col-1" value="66">
+					<input type="number" name="" id="armorDmg" class="col-1" value="250">
+					<input type="number" name="" id="attacks" class="col-1" value="2">
+					<input type="number" name="" id="headDmgMod" class="col-1" value="1.5">
+					<input type="number" name="" id="headHit" class="col-1" value="25">
 				</div>
 				<div class="row">
 					<div class="col-3"></div>
