@@ -20,7 +20,7 @@ function loadWeapons() {
 			displayWeapons(weapons);
 			displayWeapons(famedWeapons);
 			addDeleteBtn();
-			addDragAndDrop();
+			addEventsDragAndDrop();
 			// const weaponList = weapons.oneHand;
 			// console.log(famedWeapons);
 			// oneHand.innerHTML += outputHtml(weaponList);
@@ -33,43 +33,56 @@ function loadWeapons() {
 	xhr.send();
 }
 
-function addDragAndDrop() {
+function addEventsDragAndDrop(el) {
 	let weapons = document.querySelectorAll('.weapon');
-	let dropDivs = document.querySelectorAll('.empty');
 	// console.log(weapons);
 	// console.log(dropDivs);
-	for (weapon of weapons) {
+	for (const weapon of weapons) {
 		weapon.addEventListener('dragstart', dragStart);
 		weapon.addEventListener('dragend', dragEnd);
-	}
-	for (div of dropDivs) {
-		div.addEventListener('dragover', dragOver);
-		div.addEventListener('dragenter', dragEnter);
-		div.addEventListener('dragleave', dragLeave);
-		div.addEventListener('drop', dragDrop);
+		weapon.addEventListener('dragover', dragOver);
+		weapon.addEventListener('dragenter', dragEnter);
+		weapon.addEventListener('dragleave', dragLeave);
+		weapon.addEventListener('drop', dragDrop);
 	}
 }
 
-function dragStart() {
+function dragStart(e) {
 	console.log('drag start');
+	dragSrcEl = this;
+	e.dataTransfer.effectAllowed = 'move';
+	e.dataTransfer.setData('text/html', this.innerHTML);
 };
 function dragEnd() {
 	console.log('drag end');
+	this.classList.remove('hovered');
 };
-function dragOver() {
+function dragOver(e) {
 	console.log('drag Over');
-};
-function dragEnter(e) {
-	console.log('drag Enter');
 	e.preventDefault();
-	this.className += ' hovered';
+	e.dataTransfer.dropEffect = 'move';
+	return false;
 };
-function dragLeave() {
+function dragEnter() {
+	console.log('drag Enter');
+	// e.preventDefault();
+	this.classList.add('hovered');
+};
+function dragLeave(e) {
 	console.log('drag Leave');
-	this.className = 'empty';
+	// e.stopPropogation();
+	this.classList.remove('hovered');
 };
-function dragDrop() {
+function dragDrop(e) {
 	console.log('drag Drop');
+	if (dragSrcEl != this) {
+		dragSrcEl.innerHTML = this.innerHTML;
+		this.innerHTML = e.dataTransfer.getData('text/html');
+		this.classList.remove('hovered');
+	};
+	document.querySelectorAll(".show_stats").forEach(toggleStats);
+	document.querySelectorAll(".delete").forEach(removeFamed);
+	return false;
 };
 
 function displayWeapons(weapons) {
@@ -123,8 +136,6 @@ const outputHtml = (weaponList) => {
                                 <p class="col-1">${weapon.headHit}%</p>
                             </div>
 						</div>
-					</div>
-					<div class="empty">
 					</div>`
 		)
 		.join("");
@@ -136,6 +147,7 @@ function toggleStats(btn) {
 		const weaponStatsDiv =
 			e.target.parentNode.parentNode.parentNode.parentNode.nextElementSibling.classList;
 		const toggleBtn = e.currentTarget.classList;
+		console.log('button clicked');
 		// console.log(e.target.parentElement);
 		toggleRotation(toggleBtn);
 		toggleWeaponStats(weaponStatsDiv);

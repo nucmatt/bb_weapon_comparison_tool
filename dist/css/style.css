@@ -99,7 +99,8 @@ body {
 }
 
 .hovered {
-  height: 20px;
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
 }
 
 #add_famed_btn {
