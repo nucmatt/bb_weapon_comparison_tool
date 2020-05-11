@@ -19,6 +19,10 @@ input {
   text-align: center;
 }
 
+ul {
+  list-style: none;
+}
+
 #navbar {
   position: -webkit-sticky;
   position: sticky;
@@ -114,6 +118,24 @@ input {
 #add_famed_btn {
   height: 2rem;
   border-radius: 10px;
+}
+
+.footer-name {
+  text-align: left;
+  padding-left: 1rem;
+}
+
+.footer-social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  list-style: none;
 }
 
 .col-1 {
