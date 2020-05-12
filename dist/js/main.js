@@ -102,7 +102,7 @@ const outputHtml = (weaponList) => {
 				`
                     <div class="weapon" draggable="true">
                         <div class="row">
-                            <p class="col-4"><span class=${famedList.includes(weapon.name) ? `${weapon.name.toLowerCase().replace(/\s/g, "")}` : "standard"}>${
+                            <p class="col-4 wpn-name"><span class=${famedList.includes(weapon.name) ? `${weapon.name.toLowerCase().replace(/\s/g, "")}` : "standard"}>${
 															weapon.name
 														}</span><span class="buttons"><button type="button" class="toggle"><i class="fa fa-chevron-right show_stats rotateRight"></i></button></span>
                             </p>
@@ -203,7 +203,7 @@ function saveFamed(famed) {
 		let name = famed[1][0].name;
 		let weapon = JSON.stringify(famed);
 		console.log(weapon);
-		localStorage.setItem(name, weapon);
+		(name !== "") ? localStorage.setItem(name, weapon) : alert("Please enter a name for your famed item!");
 	} else {
 		alert("No local storage option. Please see readme for more details.");
 	}

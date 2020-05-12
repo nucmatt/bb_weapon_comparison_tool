@@ -3,151 +3,201 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+			rel="stylesheet"
+			integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+			crossorigin="anonymous"
+		/>
 		<link rel="stylesheet" href="css/style.css" />
 		<title>BB Weapon Comparison Tool</title>
 	</head>
-	<body class="container">
-		<header class="container">
-			<h1>BB Weapons Comparison</h1>
+	<body>
+		<header>
+			<h1>BB Weapons Comparison Tool</h1>
 		</header>
-				<nav id="navbar" class="row">
-					<a href="#oneHand">1H Weapons</a>
-					<a href="#oneHandDuelist">Duelist Weapons</a>
-					<a href="#twoHand">2H Weapons</a>
-					<a href="#reach">Reach Weapons</a>
-					<a href="#ranged">Ranged Weapons</a>
-					<a href="#add_famed">Add Famed?</a>
-				</nav>
-		<section id="oneHand">
-			<div class="row heading">
-				<h3 class="col-4">1H Weapons</h3>
-				<h3 class="col-8">Damage/Round</h3>
-			</div>
-			<div class="row">
-				<h6 class="col-4">Weapon</h6>
-				<h6 class="col-2">vs Unarmored</h6>
-				<h6 class="col-2">to Armor</h6>
-				<h6 class="col-2">Ignoring Armor</h6>
-				<h6 class="col-2">Combined Dmg</h6>
-			</div>
-		</section>
-		<hr>
-		<section id="oneHandDuelist">
-			<div class="row heading">
-				<h3 class="col-4">Duelist Weapons</h3>
-				<h3 class="col-8">Damage/Round</h3>
-			</div>
-			<div class="row">
-				<h6 class="col-4">Weapon</h6>
-				<h6 class="col-2">vs Unarmored</h6>
-				<h6 class="col-2">to Armor</h6>
-				<h6 class="col-2">Ignoring Armor</h6>
-				<h6 class="col-2">Combined Dmg</h6>
-			</div>
-		</section>
-		<hr>
-		<section id="twoHand">
-			<div class="row heading">
-				<h3 class="col-4">2H Weapons</h3>
-				<h3 class="col-8">Damage/Round</h3>
-			</div>
-			<div class="row">
-				<h6 class="col-4">Weapon</h6>
-				<h6 class="col-2">vs Unarmored</h6>
-				<h6 class="col-2">to Armor</h6>
-				<h6 class="col-2">Ignoring Armor</h6>
-				<h6 class="col-2">Combined Dmg</h6>
-			</div>
-		</section>
-		<hr>
-		<section id="reach">
-			<div class="row heading">
-				<h3 class="col-4">Reach Weapons</h3>
-				<h3 class="col-8">Damage/Round</h3>
-			</div>
-			<div class="row">
-				<h6 class="col-4">Weapon</h6>
-				<h6 class="col-2">vs Unarmored</h6>
-				<h6 class="col-2">to Armor</h6>
-				<h6 class="col-2">Ignoring Armor</h6>
-				<h6 class="col-2">Combined Dmg</h6>
-			</div>
-		</section>
-		<hr>
-		<section id="ranged">
-			<div class="row heading">
-				<h3 class="col-4">Ranged Weapons</h3>
-				<h3 class="col-8">Damage/Round</h3>
-			</div>
-			<div class="row">
-				<h6 class="col-4">Weapon</h6>
-				<h6 class="col-2">vs Unarmored</h6>
-				<h6 class="col-2">to Armor</h6>
-				<h6 class="col-2">Ignoring Armor</h6>
-				<h6 class="col-2">Combined Dmg</h6>
-			</div>
-		</section>
-		<hr />
-		<section id="add_famed">
-			<form action="" id="add_famed_form">
-				<div class="row">
-					<h6 class="col-2">Weapon Type</h6>
-					<h6 class="col-3">Name</h6>
-					<h6 class="col-1">Min Dmg</h6>
-					<h6 class="col-1">Max Dmg</h6>
-					<h6 class="col-1">Ignore Armor</h6>
-					<h6 class="col-1">Armor Dmg</h6>
-					<h6 class="col-1">Atks/Rd</h6>
-					<h6 class="col-1">Head Mod</h6>
-					<h6 class="col-1">Head Hit</h6>
+		<nav id="navbar" class="row">
+			<a href="#oneHand">1H Weapons</a>
+			<a href="#oneHandDuelist">Duelist Weapons</a>
+			<a href="#twoHand">2H Weapons</a>
+			<a href="#reach">Reach Weapons</a>
+			<a href="#ranged">Ranged Weapons</a>
+			<a href="#add_famed">Add Famed?</a>
+		</nav>
+		<div class="container">
+			<section id="oneHand">
+				<div class="row heading">
+					<h3 class="col-4">1H Weapons</h3>
+					<h3 class="col-8">Damage/Round</h3>
 				</div>
 				<div class="row">
-					<select name="" id="weaponType" class="col-2">
-						<option value="oneHand" selected>One Hand</option>
-						<option value="oneHandDuelist">One Hand(Duelist)</option>
-						<option value="twoHand">2H</option>
-						<option value="reach">Reach</option>
-						<option value="ranged">Ranged</option>
-					</select>
-					<input type="text" class="col-3" value="tryout">
-					<input type="number" name="" id="minDmg" class="col-1" value="37">
-					<input type="number" name="" id="maxDmg" class="col-1" value="50">
-					<input type="number" name="" id="ignoreArmor" class="col-1" value="66">
-					<input type="number" name="" id="armorDmg" class="col-1" value="250">
-					<input type="number" name="" id="attacks" class="col-1" value="2">
-					<input type="number" name="" id="headDmgMod" class="col-1" value="1.5">
-					<input type="number" name="" id="headHit" class="col-1" value="25">
+					<h6 class="col-4"></h6>
+					<h6 class="col-2">vs Unarmored</h6>
+					<h6 class="col-2">to Armor</h6>
+					<h6 class="col-2">Ignoring Armor</h6>
+					<h6 class="col-2">Combined Dmg</h6>
+				</div>
+			</section>
+			<hr />
+			<section id="oneHandDuelist">
+				<div class="row heading">
+					<h3 class="col-4">Duelist Weapons</h3>
+					<h3 class="col-8">Damage/Round</h3>
 				</div>
 				<div class="row">
-					<div class="col-3"></div>
-					<button type="button" id="add_famed_btn" class="col-6">Add Famed Item</button>
-					<div class="col-3"></div>
+					<h6 class="col-4"></h6>
+					<h6 class="col-2">vs Unarmored</h6>
+					<h6 class="col-2">to Armor</h6>
+					<h6 class="col-2">Ignoring Armor</h6>
+					<h6 class="col-2">Combined Dmg</h6>
 				</div>
-			</form>
-		</section>
-		<hr>
-		<footer class="container">
-			<div class="row">
-				<div class="col-8 footer-name">
-					Created by <a target ="_blank" href="https://matthew-a-wessel.dev/">Matthew Wessel</a>
+			</section>
+			<hr />
+			<section id="twoHand">
+				<div class="row heading">
+					<h3 class="col-4">2H Weapons</h3>
+					<h3 class="col-8">Damage/Round</h3>
 				</div>
-				<div class="col-4">
-					<ul class="footer-social">
-						<li><a target="_blank" href="https://www.linkedin.com/in/matthew-a-wessel"><i class="fa fa-linkedin"></i></a></li>
-						<li><a target="_blank" href="https://github.com/nucmatt"><i class="fa fa-github"></i></a></li>
-						<li><a target="_blank" href="https://freecodecamp.org/nucmatt"><i class="fa fa-free-code-camp"></i></a></li>
+				<div class="row">
+					<h6 class="col-4"></h6>
+					<h6 class="col-2">vs Unarmored</h6>
+					<h6 class="col-2">to Armor</h6>
+					<h6 class="col-2">Ignoring Armor</h6>
+					<h6 class="col-2">Combined Dmg</h6>
+				</div>
+			</section>
+			<hr />
+			<section id="reach">
+				<div class="row heading">
+					<h3 class="col-4">Reach Weapons</h3>
+					<h3 class="col-8">Damage/Round</h3>
+				</div>
+				<div class="row">
+					<h6 class="col-4"></h6>
+					<h6 class="col-2">vs Unarmored</h6>
+					<h6 class="col-2">to Armor</h6>
+					<h6 class="col-2">Ignoring Armor</h6>
+					<h6 class="col-2">Combined Dmg</h6>
+				</div>
+			</section>
+			<hr />
+			<section id="ranged">
+				<div class="row heading">
+					<h3 class="col-4">Ranged Weapons</h3>
+					<h3 class="col-8">Damage/Round</h3>
+				</div>
+				<div class="row">
+					<h6 class="col-4"></h6>
+					<h6 class="col-2">vs Unarmored</h6>
+					<h6 class="col-2">to Armor</h6>
+					<h6 class="col-2">Ignoring Armor</h6>
+					<h6 class="col-2">Combined Dmg</h6>
+				</div>
+			</section>
+			<hr />
+			<section id="add_famed">
+				<form action="" id="add_famed_form">
+					<div class="row">
+						<h6 class="col-2">Weapon Type</h6>
+						<h6 class="col-3">Name</h6>
+						<h6 class="col-1">Min Dmg</h6>
+						<h6 class="col-1">Max Dmg</h6>
+						<h6 class="col-1">Ign. Arm. %</h6>
+						<h6 class="col-1">Arm. Dmg %</h6>
+						<h6 class="col-1">Atks/Rd</h6>
+						<h6 class="col-1">Head Mod</h6>
+						<h6 class="col-1">Head Hit %</h6>
+					</div>
+					<div class="row">
+						<select name="" id="weaponType" class="col-2">
+							<option value="oneHand" selected>One Hand</option>
+							<option value="oneHandDuelist">One Hand(Duelist)</option>
+							<option value="twoHand">2H</option>
+							<option value="reach">Reach</option>
+							<option value="ranged">Ranged</option>
+						</select>
+						<input type="text" class="col-3" value="New Famed" />
+						<input type="number" name="" id="minDmg" class="col-1" value="35" />
+						<input type="number" name="" id="maxDmg" class="col-1" value="50" />
+						<input
+							type="number"
+							name=""
+							id="ignoreArmor"
+							class="col-1"
+							value="25"
+						/>
+						<input
+							type="number"
+							name=""
+							id="armorDmg"
+							class="col-1"
+							value="100"
+						/>
+						<input type="number" name="" id="attacks" class="col-1" value="2" />
+						<input
+							type="number"
+							name=""
+							id="headDmgMod"
+							class="col-1"
+							value="1.5"
+						/>
+						<input
+							type="number"
+							name=""
+							id="headHit"
+							class="col-1"
+							value="25"
+						/>
+					</div>
+					<div class="row">
+						<div class="col-3"></div>
+						<button type="button" id="add_famed_btn" class="col-6">
+							Add Famed Item
+						</button>
+						<div class="col-3"></div>
+					</div>
+				</form>
+			</section>
+			<hr />
+		</div>
+		<footer class="footer-distributed">
+				<div class="footer-left">
+					<p class="footer-name">
+						Created by
+						<a target="_blank" href="https://matthew-a-wessel.dev/"
+							>Matthew Wessel</a
+						>
+					</p>
+				</div>
+				<div class="footer-middle">
+					<ul class="footer-social-icons">
+						<li>
+							<a
+								target="_blank"
+								href="https://www.linkedin.com/in/matthew-a-wessel"
+								><i class="fa fa-linkedin"></i
+							></a>
+						</li>
+						<li>
+							<a target="_blank" href="https://github.com/nucmatt"
+								><i class="fa fa-github"></i
+							></a>
+						</li>
+						<li>
+							<a target="_blank" href="https://freecodecamp.org/nucmatt"
+								><i class="fa fa-free-code-camp"></i
+							></a>
+						</li>
 					</ul>
+				</div>			
+				<div class="footer-right">
+					<p class="inspiration">
+						Inspired by
+						<a target="_blank" href="https://patreon.com/FilthyRobot"
+							>FilthyRobot</a
+						>
+					</p>						
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-6">
-					Inspired by <a target="_blank" href="https://patreon.com/FilthyRobot">FilthyRobot</a>
-				</div>
-				<div class="col-6">
-					<span>All Rights Reserved</span>
-				</div>
-			</div>
 		</footer>
 		<script src="js/main.js"></script>
 	</body>
