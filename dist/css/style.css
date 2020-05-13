@@ -6,206 +6,6 @@
   display: none;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-image: url(../img/background.jpg);
-  background-attachment: fixed;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
-  color: #d4d4d4;
-}
-
-header {
-  background-color: #191919;
-  text-align: center;
-}
-
-section {
-  margin: 0.5rem 1rem;
-  border: 1px solid #4d4d4d;
-}
-
-input {
-  text-align: center;
-  height: 1.5rem;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-
-ul {
-  list-style: none;
-}
-
-#navbar {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  padding: 0 1rem;
-  background-color: #191919;
-  width: 100%;
-  z-index: 100;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  text-align: center;
-}
-
-.container {
-  width: 95%;
-  margin: 0 auto;
-  overflow: auto;
-  background-color: #4d4d4d;
-  opacity: 0.9;
-  color: #d4d4d4;
-}
-
-.rotateRight {
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
-}
-
-.rotateDown {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
-}
-
-.slideUp,
-.slideDown {
-  max-height: 0;
-  overflow-y: hidden;
-  -webkit-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
-}
-
-.slideDown {
-  max-height: 100px;
-}
-
-.weapon {
-  font-size: 0.95em;
-  margin: 0.1rem 0;
-}
-
-.weapon .wpn-name {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0 0.3rem;
-}
-
-.buttons button {
-  border: none;
-  background: none;
-  outline: none;
-}
-
-.buttons :hover {
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
-}
-
-.buttons .delete {
-  margin-right: 10px;
-}
-
-.empty {
-  height: 1px;
-}
-
-.hovered {
-  -webkit-transform: scale(1.03, 1.1);
-          transform: scale(1.03, 1.1);
-}
-
-#add_famed_btn {
-  height: 2rem;
-  border-radius: 10px;
-  margin-top: .5rem;
-  font-size: 1.1em;
-  font-weight: bold;
-}
-
-#add_famed_btn :hover {
-  background-color: red;
-}
-
-footer {
-  position: static;
-  bottom: 0;
-}
-
-footer a {
-  color: #d4d4d4;
-  text-decoration: none;
-}
-
-footer a :hover {
-  -webkit-transform: scale(1.1, 1.1);
-          transform: scale(1.1, 1.1);
-}
-
-.footer-distributed {
-  background-color: #191919;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 100%;
-  padding: 20px 20px 30px 20px;
-}
-
-.footer-distributed .footer-left, .footer-distributed .footer-middle, .footer-distributed .footer-right {
-  display: inline-block;
-  vertical-align: top;
-  width: 30%;
-}
-
-.footer-right p {
-  text-align: right;
-}
-
-.footer-name {
-  text-align: left;
-  padding-left: 1rem;
-}
-
-.footer-social-icons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  list-style: none;
-}
-
 .col-1 {
   width: 8.33333%;
 }
@@ -252,4 +52,249 @@ footer a :hover {
 
 .col-12 {
   width: 100%;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 1100px;
+  margin: 0 auto;
+  background-image: url(../img/background.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  color: #d4d4d4;
+}
+
+header {
+  background-color: #191919;
+  opacity: #191919;
+  text-align: center;
+}
+
+section {
+  margin: 0.5rem 1rem;
+  border: 1px solid #4d4d4d;
+}
+
+input {
+  text-align: center;
+  height: 1.5rem;
+  font-size: 0.8em;
+  font-weight: bold;
+  -webkit-user-select: all;
+     -moz-user-select: all;
+      -ms-user-select: all;
+          user-select: all;
+}
+
+ul {
+  list-style: none;
+}
+
+#navbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 0 1rem;
+  background-color: #191919;
+  width: 100%;
+  z-index: 100;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: #d4d4d4;
+  cursor: url(../img/BBCursorSword.png), pointer;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-align: center;
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+  overflow: auto;
+  background-color: #3d3d3d;
+  opacity: 0.9;
+  color: #d4d4d4;
+  cursor: url(../img/BBCursorHand.png), pointer;
+}
+
+.rotateRight {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+.rotateDown {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+.slideUp,
+.slideDown {
+  max-height: 0;
+  overflow-y: hidden;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+.slideDown {
+  max-height: 100px;
+}
+
+.weapon {
+  font-size: 0.95em;
+  margin: 0.1rem 0;
+  text-align: right;
+}
+
+.weapon .wpn-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 0.3rem;
+}
+
+.weapon .wpn-name :hover {
+  cursor: url(../img/BBCursorSword.png), pointer;
+}
+
+.buttons button {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.buttons:hover {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+  cursor: url(../img/BBCursorSword.png), pointer;
+}
+
+.buttons .delete {
+  margin-right: 1rem;
+}
+
+.empty {
+  height: 1px;
+}
+
+.hovered {
+  -webkit-transform: scale(1.03, 1.1);
+          transform: scale(1.03, 1.1);
+}
+
+#add_famed_btn {
+  height: 2rem;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+#add_famed_btn:hover {
+  cursor: url(../img/BBCursorSword.png), pointer;
+}
+
+footer {
+  position: static;
+  bottom: 0;
+}
+
+footer a {
+  color: #d4d4d4;
+  text-decoration: none;
+}
+
+footer a :hover {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+}
+
+.footer-distributed {
+  background-color: #191919;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  padding: 20px 20px 30px 20px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-middle,
+.footer-distributed .footer-right {
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
+}
+
+.footer-right p {
+  text-align: right;
+}
+
+.footer-name {
+  text-align: center;
+  padding-left: 1rem;
+}
+
+.footer-social-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  list-style: none;
+}
+
+@media screen and (min-width: 1050px) {
+  body {
+    font-size: medium;
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1035px) {
+  body {
+    font-size: smaller;
+  }
+  .wpn-name {
+    min-width: 227px;
+  }
+}
+
+@media screen and (max-width: 699px) {
+  body {
+    font-size: smaller;
+  }
 }

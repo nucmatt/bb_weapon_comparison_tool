@@ -1,22 +1,4 @@
-$font-stack: Arial, Helvetica, sans-serif;
-$bg-color: #4d4d4d;
-$header-bg-color: #191919;
-$text-color: #d4d4d4;
-$bg-opacity: 0.90;
-
-// Browser settings
-::-webkit-inner-spin-button {
-	display: none;
-}
-
-::-webkit-clear-button {
-	display: none;
-}
-
-// Configs
-@mixin easeOut {
-	transition: all 0.5s ease-out;
-}
+@import "config";
 
 * {
 	box-sizing: border-box;
@@ -25,9 +7,11 @@ $bg-opacity: 0.90;
 }
 
 body {
-	// background-color: $body-bg-color;
-	background-image: url(../img/background.jpg);
+	max-width: 1100px;
+	margin: 0 auto;
+	background-image: $bg-image;
 	background-attachment: fixed;
+	background-size: cover;
 	font-family: $font-stack;
 	line-height: 1.5;
 	color: $text-color;
@@ -35,6 +19,7 @@ body {
 
 header {
 	background-color: $header-bg-color;
+	opacity: $header-bg-color;
 	text-align: center;
 }
 
@@ -48,18 +33,12 @@ input {
 	height: 1.5rem;
 	font-size: 0.8em;
 	font-weight: bold;
+	user-select: all;
 }
 
 ul {
 	list-style: none;
 }
-
-// h3, h6 {
-// 	border: 1px solid #191919;
-// 	margin-bottom: 0.1rem;
-// }
-
-
 
 #navbar {
 	position: sticky;
@@ -69,6 +48,12 @@ ul {
 	width: 100%;
 	z-index: 100;
 	justify-content: space-between;
+
+	a {
+		text-decoration: none;
+		color: $text-color;
+		cursor: $interact-cursor, pointer;
+	}
 }
 
 .row {
@@ -84,6 +69,7 @@ ul {
 	background-color: $bg-color;
 	opacity: $bg-opacity;
 	color: $text-color;
+	cursor: $general-cursor, pointer;
 }
 
 .rotateRight {
@@ -108,14 +94,19 @@ ul {
 }
 
 .weapon {
-	// border-bottom: 1px dotted #191919;
 	font-size: 0.95em;
 	margin: 0.1rem 0;
+	text-align: right;
+
 	.wpn-name {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 0 0.3rem;
+
+		:hover {
+			cursor: $interact-cursor, pointer;
+		}
 	}
 }
 
@@ -126,13 +117,13 @@ ul {
 		outline: none;
 	}
 
-	:hover {
+	&:hover {
 		transform: scale(1.2, 1.2);
+		cursor: $interact-cursor, pointer;
 	}
 
 	.delete {
-		// background-color: red;
-		margin-right: 10px;
+		margin-right: 1rem;
 	}
 }
 
@@ -147,12 +138,12 @@ ul {
 #add_famed_btn {
 	height: 2rem;
 	border-radius: 10px;
-	margin-top: .5rem;
+	margin-top: 0.5rem;
 	font-size: 1.1em;
 	font-weight: bold;
 
-	:hover {
-		background-color: red;
+	&:hover {
+		cursor: $interact-cursor, pointer;
 	}
 }
 
@@ -176,7 +167,9 @@ footer {
 	width: 100%;
 	padding: 20px 20px 30px 20px;
 
-	.footer-left, .footer-middle, .footer-right {
+	.footer-left,
+	.footer-middle,
+	.footer-right {
 		display: inline-block;
 		vertical-align: top;
 		width: 30%;
@@ -190,21 +183,15 @@ footer {
 }
 
 .footer-name {
-	text-align: left;
+	text-align: center;
 	padding-left: 1rem;
 }
 
 .footer-social-icons {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-evenly;
 	list-style: none;
 }
 
-// Utilities
-@for $i from 1 through 12 {
-	.col-#{$i} {
-		width: 100%/12 * $i;
-		// border: 1px solid black;
-	}
-}
+@import "mediaqueries";

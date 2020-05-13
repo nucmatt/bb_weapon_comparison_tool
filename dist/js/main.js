@@ -185,6 +185,8 @@ function addFamed(e) {
 		console.log(famedItem);
 		saveFamed(famedItem);
 		displayNewFamed(famedItem);
+		document.querySelectorAll(".show_stats").forEach(toggleStats);
+		document.querySelectorAll(".delete").forEach(removeFamed);
 		location.reload();
 	};
 // }
@@ -212,8 +214,9 @@ function saveFamed(famed) {
 function addDeleteBtn() {
 	// let keys = Object.keys(localStorage);
 	// let famedHtml = document.querySelectorAll('.name');
-	let famedHtml;
+	// famedList = Object.keys(localStorage);
 	// console.log(famedList);
+	let famedHtml;
 	for (let i = 0; i < famedList.length; i++) {
 		// console.log(famedList[i]);
 		// console.log(`.${famedList[i].toLowerCase().replace(/\s/g, "")}`)

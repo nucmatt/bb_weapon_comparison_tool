@@ -469,7 +469,7 @@
             "headHit":30
         },
         {
-            "name":"Duelist Heavy Javelins",
+            "name":"Duelist H. Javelins",
             "minDmg":40,
             "maxDmg":55,
             "ignoreArmor":70,
@@ -479,7 +479,7 @@
             "headHit":25
         },
         {
-            "name":"Duelist Heavy Throwing Axes",
+            "name":"Duelist H. Throwing Axes",
             "minDmg":35,
             "maxDmg":55,
             "ignoreArmor":50,
@@ -489,7 +489,7 @@
             "headHit":30
         },
         {
-            "name":"2 Tile Duelist Heavy Javelins",
+            "name":"2Tile/Duel. H. Javelins",
             "minDmg":56,
             "maxDmg":77,
             "ignoreArmor":70,
@@ -499,7 +499,7 @@
             "headHit":25
         },
         {
-            "name":"2 Tile Duelist Heavy Throwing Axes",
+            "name":"2Tile/Duel. H. Throwing Axes",
             "minDmg":49,
             "maxDmg":77,
             "ignoreArmor":50,
