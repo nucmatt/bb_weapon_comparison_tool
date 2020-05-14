@@ -1,26 +1,17 @@
 // Wide Screens
 @include mediaXl {
-    body {
-        font-size: medium;
-    }
+    
 }
 
 // Large Laptops/Desktops
 @include mediaLg {
-    body {
-        font-size: smaller;
-    }
 
-    .wpn-name {
-        min-width: 227px;
-    }
-   
 }
 
 // Tablets/Small Laptops
 @include mediaMd {
     body {
-        font-size: smaller;
+        font-size: 0.7em;
     }
 }
 

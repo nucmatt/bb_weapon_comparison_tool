@@ -113,6 +113,7 @@ ul {
 
 #navbar a {
   text-decoration: none;
+  padding: 0 0.2rem;
   color: #d4d4d4;
   cursor: url(../img/BBCursorSword.png), pointer;
 }
@@ -183,8 +184,18 @@ ul {
   padding: 0 0.3rem;
 }
 
+.weapon .wpn-name span:first-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .weapon .wpn-name :hover {
   cursor: url(../img/BBCursorSword.png), pointer;
+}
+
+.buttons {
+  white-space: nowrap;
 }
 
 .buttons button {
@@ -193,7 +204,7 @@ ul {
   outline: none;
 }
 
-.buttons:hover {
+.buttons button:hover {
   -webkit-transform: scale(1.2, 1.2);
           transform: scale(1.2, 1.2);
   cursor: url(../img/BBCursorSword.png), pointer;
@@ -278,23 +289,8 @@ footer a :hover {
   list-style: none;
 }
 
-@media screen and (min-width: 1050px) {
-  body {
-    font-size: medium;
-  }
-}
-
-@media screen and (min-width: 700px) and (max-width: 1035px) {
-  body {
-    font-size: smaller;
-  }
-  .wpn-name {
-    min-width: 227px;
-  }
-}
-
 @media screen and (max-width: 699px) {
   body {
-    font-size: smaller;
+    font-size: 0.7em;
   }
 }
