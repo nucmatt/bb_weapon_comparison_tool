@@ -212,13 +212,12 @@ function displayNewFamed(famed) {
 
 function saveFamed(famed) {
 	if (typeof Storage !== undefined) {
-		console.log("Yay local storage!");
 		let name = famed[1][0].name;
 		let weapon = JSON.stringify(famed);
 		console.log(weapon);
 		(name !== "") ? localStorage.setItem(name, weapon) : alert("Please enter a name for your famed item!");
 	} else {
-		alert("No local storage option. Please see readme for more details.");
+		alert("No local storage option. Please see readme (link in footer) for more details.");
 	}
 }
 

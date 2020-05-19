@@ -242,7 +242,7 @@ footer {
 
 footer a {
   color: #d4d4d4;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 footer a :hover {
@@ -267,7 +267,7 @@ footer a :hover {
 }
 
 .footer-right p {
-  text-align: right;
+  text-align: center;
 }
 
 .footer-name {
@@ -287,6 +287,11 @@ footer a :hover {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   list-style: none;
+}
+
+.readme {
+  font-size: 0.9em;
+  text-align: center;
 }
 
 @media screen and (max-width: 699px) {
